@@ -1,9 +1,12 @@
 
-
 DeviceProcessEvents 
 | where FileName contains "wscript.exe"
+SecurityEvent
+| where CommandLine contains "wscript.exe"
 DeviceProcessEvents 
 | where FileName contains "quickassist.exe"
+SecurityEvent
+| where CommandLine contains "quickassist.exe"
 
 DeviceProcessEvents
 | where FileName contains "powershell.exe"
