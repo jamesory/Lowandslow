@@ -1,0 +1,15 @@
+
+
+DeviceProcessEvents 
+| where FileName contains "wscript.exe"
+DeviceProcessEvents 
+| where FileName contains "quickassist.exe"
+
+DeviceProcessEvents
+| where FileName contains "powershell.exe"
+If you have the AMA agent running, this is the query you need.
+SecurityEvent
+| where CommandLine contains "powershell.exe"
+If you are running the AMA agent on a Windows Event Forwarding server, you will need to run this query. 
+WindowsEvent
+| where EventData contains "powershell.exe"
