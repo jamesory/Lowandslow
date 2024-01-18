@@ -16,3 +16,8 @@ SecurityEvent
 If you are running the AMA agent on a Windows Event Forwarding server, you will need to run this query. 
 WindowsEvent
 | where EventData contains "powershell.exe"
+
+DeviceProcessEvents 
+| where FileName == "nltest.exe" or FileName == "whoami.exe" or FileName == "net.exe" or FileName == "net1.exe" or FileName == "hostname.exe" or FileName == "systeminfo.exe" or FileName == "qprocess.exe" or FileName == "ntdsutil.exe"
+| where InitiatingProcessParentFileName <> "SenseIR.exe"
+| where AccountDomain <> "nt authority" and FileName == "net1.exe"
